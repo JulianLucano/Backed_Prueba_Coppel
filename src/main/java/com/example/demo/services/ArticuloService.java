@@ -14,7 +14,7 @@ import com.example.demo.repositories.ArticuloRepository;
 @Service
 public class ArticuloService {
 
-	@Autowired
+	@Autowired(required=false)
 	private ArticuloRepository articuloRepository;
 	
 	public Articulo getArticuloBySku(Integer sku) {

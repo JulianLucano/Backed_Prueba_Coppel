@@ -11,7 +11,7 @@ import com.example.demo.repositories.FamiliaRepository;
 @Service
 public class FamiliaService {
 
-	@Autowired
+	@Autowired(required=false)
 	private FamiliaRepository familiaRepository;
 	
 	public List<Familia> getFamiliasPorClase(int idClase){
