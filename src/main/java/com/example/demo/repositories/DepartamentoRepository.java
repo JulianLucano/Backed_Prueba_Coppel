@@ -11,6 +11,6 @@ import com.example.demo.entitys.Departamento;
 @Repository
 public interface DepartamentoRepository extends JpaRepository<Departamento, Integer>{
 
-	@Query(value="{call getDepartamentos()}", nativeQuery=true)
+	@Query(value="{call getDepartamentos()}")
 	List<Departamento> getDepartamentos();
 }
