@@ -11,7 +11,7 @@ import com.example.demo.repositories.ClaseRepository;
 @Service
 public class ClaseService {
 
-	@Autowired(required=false)
+	@Autowired
 	private ClaseRepository claseRepository;
 	
 	public List<Clase> getClasesPorDepto(int idDepto) {

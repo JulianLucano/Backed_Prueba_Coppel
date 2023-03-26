@@ -11,7 +11,7 @@ import com.example.demo.repositories.DepartamentoRepository;
 @Service
 public class DepartamentoService {
 
-	@Autowired(required=false)
+	@Autowired
 	private DepartamentoRepository deptoRepository;
 	
 	public List<Departamento> getDepartamentos() {
