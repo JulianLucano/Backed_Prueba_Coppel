@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entitys.Departamento;
 import com.example.demo.services.DepartamentoService;
 
+import jakarta.transaction.Transactional;
+
 @CrossOrigin(origins= {"*"})
 @RestController
 @RequestMapping("/departamentos")
@@ -22,6 +24,7 @@ public class DepartamentoController {
 	private DepartamentoService deptoService;
 	
 	@GetMapping
+	@Transactional
 	public ResponseEntity<List<Departamento>> getDepartamentos(){
 		return new ResponseEntity<>(deptoService.getDepartamentos(), HttpStatus.OK);
 	}
