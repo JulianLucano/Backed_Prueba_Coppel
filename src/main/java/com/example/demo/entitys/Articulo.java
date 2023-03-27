@@ -25,6 +25,24 @@ import jakarta.persistence.Table;
         parameters = {
           @StoredProcedureParameter(mode=ParameterMode.IN, name="skuIn", type=Integer.class)
 })
+
+/*@NamedStoredProcedureQuery(
+        name = "CrearArticulo",
+        procedureName = "createArticulo",
+        parameters = {
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="skuIn", type=Integer.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="articuloIn", type=String.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="marcaIn", type=String.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="modeloIn", type=String.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="id_departamentoIn", type=Integer.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="id_claseIn", type=Integer.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="id_familiaIn", type=Integer.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="fecha_altaIn", type=Date.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="stockIn", type=Integer.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="cantidadIn", type=Integer.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="descontinuadoIn", type=Integer.class),
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="fecha_bajaIn", type=Date.class)
+})*/
 @Table(name="articulos")
 public class Articulo implements Serializable{
 

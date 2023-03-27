@@ -24,25 +24,29 @@ public class ArticuloService {
 	}
 	
 	public void addArticulo(Articulo articulo) {
-		
-		if(articulo.getStock() >= articulo.getCantidad()) {
-			articuloRepository.addArticulo(
-					articulo.getSku(),
-					articulo.getArticulo(),
-					articulo.getMarca(),
-					articulo.getModelo(),
-					articulo.getDepartamento().getId(),
-					articulo.getClase().getId(),
-					articulo.getFamilia().getId(),
-					articulo.getFechaAlta(),
-					articulo.getStock(),
-					articulo.getCantidad(),
-					articulo.getDescontinuado(),
-					articulo.getFechaBaja()
-					);
-			
+		Optional<Articulo> art = articuloRepository.findBySku(articulo.getSku());
+		if(art.isPresent()) {
+			throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, String.format("Ya existe un articulo con sku %d", articulo.getSku()));
 		}else {
-			throw new ResponseStatusException(HttpStatus.CONFLICT, String.format("La cantidad debe ser menor al stock"));
+			if(articulo.getStock() >= articulo.getCantidad()) {
+				articuloRepository.addArticulo(
+						articulo.getSku(),
+						articulo.getArticulo(),
+						articulo.getMarca(),
+						articulo.getModelo(),
+						articulo.getDepartamento().getId(),
+						articulo.getClase().getId(),
+						articulo.getFamilia().getId(),
+						articulo.getFechaAlta(),
+						articulo.getStock(),
+						articulo.getCantidad(),
+						articulo.getDescontinuado(),
+						articulo.getFechaBaja()
+						);
+				
+			}else {
+				throw new ResponseStatusException(HttpStatus.CONFLICT, String.format("La cantidad debe ser menor al stock"));
+			}
 		}
 		
 	}

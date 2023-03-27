@@ -47,6 +47,25 @@ public interface ArticuloRepository extends JpaRepository<Articulo, Integer>{
 			@Param("fecha_bajaIn") Date fecha_baja
 			);
 	
+	/*@Modifying
+	@Procedure(name = "createArticulo")
+	@Transactional
+	void createArticulo(
+			@Param("skuIn") int sku,
+			@Param("articuloIn") String articulo,
+			@Param("marcaIn") String marca,
+			@Param("modeloIn") String modelo,
+			@Param("id_departamentoIn") int idDepto,
+			@Param("id_claseIn") int idClase,
+			@Param("id_familiaIn") int idFamilia,
+			@Param("fecha_altaIn") Date fecha_alta,
+			@Param("stockIn") int stock,
+			@Param("cantidadIn") int cantidad,
+			@Param("descontinuadoIn") int descontinuado,
+			@Param("fecha_bajaIn") Date fecha_baja
+			
+			);*/
+	
 	@Modifying
 	@Query(value="{call actualizarArticulo(:skuIn, :articuloIn, :marcaIn, :modeloIn, :id_departamentoIn, :id_claseIn, :id_familiaIn, :fecha_altaIn, :stockIn, :cantidadIn, :descontinuadoIn, :fecha_bajaIn)}", nativeQuery=true)
 	@Transactional

@@ -47,8 +47,9 @@ public class ArticuloController {
 	@PostMapping("/save")
 	@Transactional
 	public ResponseEntity<Void> addArticulo(@RequestBody Articulo articulo){
+		System.out.println("articulo" + articulo.getFechaAlta());
 		articuloService.addArticulo(articulo);
-		return new ResponseEntity<>(HttpStatus.OK);
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
 	
 	@DeleteMapping("/borrar/{sku}")
