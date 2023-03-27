@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entitys.Familia;
 import com.example.demo.services.FamiliaService;
 
-@CrossOrigin(origins= {"*"})
 @RestController
+@CrossOrigin(origins= {"https://test-copp-fe122.web.app"})
 @RequestMapping("/familias")
 public class FamiliaController {
 

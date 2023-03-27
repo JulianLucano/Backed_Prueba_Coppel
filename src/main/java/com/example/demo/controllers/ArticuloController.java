@@ -18,8 +18,8 @@ import com.example.demo.services.ArticuloService;
 
 import jakarta.transaction.Transactional;
 
-@CrossOrigin(origins= {"*"})
 @RestController
+@CrossOrigin(origins= {"https://test-copp-fe122.web.app"})
 @RequestMapping("/articulos")
 public class ArticuloController {
 
