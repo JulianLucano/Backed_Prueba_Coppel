@@ -27,13 +27,11 @@ public class ArticuloController {
 	private ArticuloService articuloService;
 	
 	@GetMapping("/articulo/{sku}")
-	@Transactional
 	public ResponseEntity<Articulo> getArticuloBySku(@PathVariable("sku") Integer sku){
 		return new ResponseEntity<Articulo>(articuloService.getArticuloBySku(sku), HttpStatus.OK);
 	}
 	
 	@PostMapping("/add")
-	@Transactional
 	public ResponseEntity<Articulo> createArticulo(@RequestBody Articulo articulo){
 		return new ResponseEntity<>(articuloService.save(articulo), HttpStatus.CREATED);
 	}
@@ -46,7 +44,6 @@ public class ArticuloController {
 	
 	
 	@PostMapping("/save")
-	@Transactional
 	public ResponseEntity<Void> addArticulo(@RequestBody Articulo articulo){
 		articuloService.addArticulo(articulo);
 		return new ResponseEntity<>(HttpStatus.OK);
