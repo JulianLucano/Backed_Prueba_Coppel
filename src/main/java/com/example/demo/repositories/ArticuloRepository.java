@@ -1,15 +1,18 @@
 package com.example.demo.repositories;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entitys.Articulo;
+import com.example.demo.entitys.Departamento;
 
 import jakarta.transaction.Transactional;
 
@@ -18,7 +21,12 @@ public interface ArticuloRepository extends JpaRepository<Articulo, Integer>{
 	
 	public Optional<Articulo> findBySku(int sku);
 
-	@Query(value="{call buscarPorSku(:skuIn)}", nativeQuery=true)
+	/*@Query(value="{call buscarPorSku(:skuIn)}", nativeQuery=true)
+	Optional<Articulo> buscarPorSku(@Param("skuIn") Integer sku);*/
+	
+	@Modifying
+	@Procedure(name = "buscarPorSku")
+	@Transactional
 	Optional<Articulo> buscarPorSku(@Param("skuIn") Integer sku);
 	
 	@Modifying

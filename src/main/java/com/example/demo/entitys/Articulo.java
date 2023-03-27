@@ -12,9 +12,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedStoredProcedureQuery;
+import jakarta.persistence.ParameterMode;
+import jakarta.persistence.StoredProcedureParameter;
 import jakarta.persistence.Table;
 
 @Entity
+
+@NamedStoredProcedureQuery(
+        name = "BuscarArticulo",
+        procedureName = "buscarPorSku",
+        parameters = {
+          @StoredProcedureParameter(mode=ParameterMode.IN, name="skuIn", type=Integer.class)
+})
 @Table(name="articulos")
 public class Articulo implements Serializable{
 
